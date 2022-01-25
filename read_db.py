@@ -64,6 +64,11 @@ def run():
                   '데이터 첨부.',
                   [user_file_path, kakao_file_path]
                   )
+        send_mail(_, me,
+                  f'isky 전일 통계데이터 첨부 {start} 자료',
+                  '데이터 첨부.',
+                  [user_file_path, kakao_file_path]
+                  )
         debug('메일 전송 OK')
     else:
         send_mail(_, me, 'isky 전일 통계데이터 메일 전송 실패',
