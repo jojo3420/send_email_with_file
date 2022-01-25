@@ -8,5 +8,5 @@ RUN pip install -r requirments.txt
 
 COPY ./ ./
 
-CMD ['python', 'main.py']
+CMD ["python", "main.py"]
 
