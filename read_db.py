@@ -54,13 +54,12 @@ def run():
     user_is_exist = os.path.exists(user_file_path)
     kakao_file_path = path + '/kakao_history.csv'
     kakao_is_exist = os.path.exists(kakao_file_path)
-    print(user_is_exist, kakao_is_exist)
-
-    me = 'jjjhhhvvv@naver.com'
-    send_to = 'jongun.flow@gmail.com'
+    # print(user_is_exist, kakao_is_exist)
+    me = os.getenv('TO_EMAIL_ME')
+    send_to = os.getenv('TO_EMAIL')
     _ = ''
     if user_is_exist and kakao_is_exist:
-        send_mail(_, me,
+        send_mail(_, send_to,
                   f'isky 전일 통계데이터 첨부 {start} 자료',
                   '데이터 첨부.',
                   [user_file_path, kakao_file_path]
