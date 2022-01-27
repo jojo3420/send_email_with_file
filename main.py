@@ -18,7 +18,7 @@ def run():
         send(file_path)
 
 
-schedule.daily(dt.time(hour=17, minute=50, tzinfo=TZ_KST), run)
+schedule.daily(dt.time(hour=10, minute=0, tzinfo=TZ_KST), run)
 print(schedule)
 
 while True:
