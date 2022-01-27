@@ -57,13 +57,3 @@ def send_mail(send_from: str, send_to: str, subject: str, message: str,
     smtp.login(username, password)
     smtp.sendmail(send_from, send_to, msg.as_string())
     smtp.quit()
-
-
-if __name__ == '__main__':
-    send_mail(
-        send_from='spring3420@daum.net',
-        send_to='jjjhhhvvv@naver.com',
-        subject='title',
-        message="hello?",
-        files=['./msg.txt']
-    )
