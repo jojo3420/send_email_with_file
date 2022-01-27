@@ -39,7 +39,7 @@ def run():
             cursor.execute(sql, (start, end))
             rows: list = cursor.fetchall()
             df = pd.DataFrame(rows)
-            df.to_csv(path + '/user.csv')
+            df.to_excel(path + '/user.xlsx', encoding='UTF-8')
 
         with conn.cursor() as cursor:
             sql = "SELECT count(*) as cnt FROM kakao_history " \
@@ -48,11 +48,11 @@ def run():
             row = cursor.fetchone()
             # print(start, row.get('cnt', 0))
             df = pd.Series({'date': start, 'count': row.get('cnt', 0)})
-            df.to_csv(path + '/kakao_history.csv')
+            df.to_excel(path + '/kakao_history.xlsx', encoding='UTF-8')
 
-    user_file_path = path + '/user.csv'
+    user_file_path = path + '/user.xlsx'
     user_is_exist = os.path.exists(user_file_path)
-    kakao_file_path = path + '/kakao_history.csv'
+    kakao_file_path = path + '/kakao_history.xlsx'
     kakao_is_exist = os.path.exists(kakao_file_path)
     # print(user_is_exist, kakao_is_exist)
     me = os.getenv('TO_EMAIL_ME')
