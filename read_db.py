@@ -1,6 +1,6 @@
 import os
+import time
 from datetime import datetime, timedelta
-
 import pymysql.cursors
 import dotenv
 import pandas as pd
@@ -11,10 +11,11 @@ from email_module import send_mail
 columns = ['id', '이벤트 참여 시간', '이름', '전화번호', '유저 키', '카카오톡 공유 여부']
 
 ymd_format = '%Y-%m-%d'
-_today = datetime.today()
-_diff = timedelta(days=1)
-_yesterday = _today - _diff
-yesterday, today = _yesterday.strftime(ymd_format), _today.strftime(ymd_format)
+today = time.strftime('%Y-%m-%d %H:%M:%S')
+# _today = datetime.today()
+# _diff = timedelta(days=1)
+# _yesterday = _today - _diff
+# yesterday, today = _yesterday.strftime(ymd_format), _today.strftime(ymd_format)
 
 
 def read_data_and_save_excel():
