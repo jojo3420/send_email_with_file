@@ -13,3 +13,4 @@ schedule==1.1.0
 scheduler==0.6.3
 six==1.16.0
 typeguard==2.13.3
+XlsxWriter==3.0.2
