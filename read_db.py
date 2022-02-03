@@ -10,15 +10,10 @@ from email_module import send_mail
 
 columns = ['id', '이벤트 참여 시간', '이름', '전화번호', '유저 키', '카카오톡 공유 여부']
 
-ymd_format = '%Y-%m-%d'
-today = time.strftime('%Y-%m-%d %H:%M:%S')
-# _today = datetime.today()
-# _diff = timedelta(days=1)
-# _yesterday = _today - _diff
-# yesterday, today = _yesterday.strftime(ymd_format), _today.strftime(ymd_format)
-
 
 def read_data_and_save_excel():
+    today = time.strftime('%Y-%m-%d %H:%M:%S')
+
     dotenv.load_dotenv('.env')
     # dateDict = {0: '월요일', 1: '화요일', 2: '수요일', 3: '목요일', 4: '금요일', 5: '토요일', 6: '일요일'}
     # Connect to the database
@@ -65,6 +60,7 @@ def read_data_and_save_excel():
 
 
 def send(file_path):
+    today = time.strftime('%Y-%m-%d %H:%M:%S')
     me = os.getenv('TO_EMAIL_ME')
     send_to_jo = os.getenv('TO_EMAIL_JO')
     send_to_client = os.getenv('TO_EMAIL_CLIENT')
